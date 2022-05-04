@@ -1,9 +1,10 @@
+import Container from './components/Container/Container.js';
 
 function App() {
   return (
-    <div>
-      hej
-    </div>
+    <Container>
+      Hej
+    </Container>
   );
 }
 
