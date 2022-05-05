@@ -21,10 +21,9 @@ function App() {
     };
   }, []);
 
-  console.log();
   return (
     <Container>
-      <Time />
+      <Time duration={30000}/>
       <div>
         <Button>Start</Button>
         <Button>Stop</Button>
