@@ -9,27 +9,26 @@ function App() {
   const [timer, setTimer] = useState(false);
 
   useEffect(() => {
-    // code that runs once at the start
-    const start = () => {
-      setTimer(
-        setInterval(() => {
-          setTime((prevValue) => prevValue + 1);
-        }, 1)
-      );
-    };
-    return () => {
-      // code that runs once at the end
-      if (timer) clearInterval(time);
-    };
-  }, []);
+    let watch;
+
+    if (timer) {
+      watch = setInterval(() => {
+        setTime((prevValue) => prevValue + 5);
+      }, 1);
+    } else if (!timer) {
+      clearInterval(watch);
+    }
+
+    return () => clearInterval(watch);
+  }, [timer]);
 
   return (
     <Container>
       <Time duration={time} />
       <div className={styles.time}>
-      <Button onClick={() => setTimer(false)}>Start</Button>
-      <Button onClick={() => setTimer(true)}>Stop</Button>
-      <Button onClick={() => setTime(0)}>Reset</Button>
+        <Button onClick={() => setTimer(true)}>Start</Button>
+        <Button onClick={() => setTimer(false)}>Stop</Button>
+        <Button onClick={() => setTime(0)}>Reset</Button>
       </div>
     </Container>
   );

@@ -6,7 +6,6 @@ const Time = props => {
   let minutes = Math.floor((props.duration / (1000 * 60)) % 60);
   let hours = Math.floor((props.duration / (1000 * 60 * 60)) % 24);
 
-  milliseconds = milliseconds < 10 ? '0' + milliseconds : milliseconds;
   hours = hours < 10 ? '0' + hours : hours;
   minutes = minutes < 10 ? '0' + minutes : minutes;
   seconds = seconds < 10 ? '0' + seconds : seconds;
