@@ -13,8 +13,8 @@ function App() {
 
     if (timer) {
       watch = setInterval(() => {
-        setTime((prevValue) => prevValue + 5);
-      }, 1);
+        setTime((prevValue) => prevValue + 100);
+      }, 100);
     } else if (!timer) {
       clearInterval(watch);
     }

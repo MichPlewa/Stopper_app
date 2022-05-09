@@ -1,6 +1,6 @@
 import styles from './time.module.scss';
 
-const Time = props => {
+const Time = (props) => {
   let milliseconds = Math.floor((props.duration % 1000) / 100);
   let seconds = Math.floor((props.duration / 1000) % 60);
   let minutes = Math.floor((props.duration / (1000 * 60)) % 60);
@@ -10,9 +10,11 @@ const Time = props => {
   minutes = minutes < 10 ? '0' + minutes : minutes;
   seconds = seconds < 10 ? '0' + seconds : seconds;
 
-  console.log(hours, ' ', minutes, ' ', seconds, '', milliseconds);
-
-  return (<div className={styles.time}>{hours + ':' + minutes + ':' + seconds + '.' + milliseconds}</div>);
+  return (
+    <div className={styles.time}>
+      {hours + ':' + minutes + ':' + seconds + '.' + milliseconds}
+    </div>
+  );
 };
 
 export default Time;
